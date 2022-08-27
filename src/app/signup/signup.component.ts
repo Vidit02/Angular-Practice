@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { SessionService } from '../service/session.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class SignupComponent implements OnInit {
   gender : string = "";
 
 
-  constructor(private sessionService : SessionService) { }
+  constructor(private sessionService : SessionService , private toastr : ToastrService ) { }
 
   ngOnInit(): void {
   }
@@ -42,10 +43,11 @@ export class SignupComponent implements OnInit {
 
     this.sessionService.signUpApi(user).subscribe(resp =>{
       console.log(resp);
-
+      this.toastr.success(`${this.firstname} user added...`)
+      // this.toastr.success("User Added...")
     }, err => {
       console.log(err);
-      
+      this.toastr.error("Error in Internet...")
     })
   }
 
