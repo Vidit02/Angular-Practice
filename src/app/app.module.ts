@@ -10,13 +10,15 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { HttpClientModule} from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
+import { ListuserComponent } from './listuser/listuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ListuserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { SessionService } from '../service/session.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent implements OnInit {
   gender : string = "";
 
 
-  constructor(private sessionService : SessionService , private toastr : ToastrService ) { }
+  constructor(private sessionService : SessionService , private toastr : ToastrService , private router : Router ) { }
 
   ngOnInit(): void {
   }
@@ -44,6 +45,7 @@ export class SignupComponent implements OnInit {
     this.sessionService.signUpApi(user).subscribe(resp =>{
       console.log(resp);
       this.toastr.success(`${this.firstname} user added...`)
+      this.router.navigateByUrl("listuser")
       // this.toastr.success("User Added...")
     }, err => {
       console.log(err);
