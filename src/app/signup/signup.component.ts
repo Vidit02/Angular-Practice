@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../service/session.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,11 @@ export class SignupComponent implements OnInit {
   email : string =  "";
   firstname : string = "" ;
   password : string = "";
-  constructor() { }
+  lastname : string = "";
+  gender : string = "";
+
+
+  constructor(private sessionService : SessionService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +25,28 @@ export class SignupComponent implements OnInit {
     console.log(this.email);
     console.log(this.firstname);
     console.log(this.password);
+    console.log(this.lastname);
+    console.log(this.gender);
+    
+    
+
+    let user = {
+      "firstname" : this.firstname,
+      "email" : this.email,
+      "password" : this.password,
+      "lastname" : this.lastname,
+      "gender" : this.gender,
+      "active" : true
+      // "lastname" : 
+    }
+
+    this.sessionService.signUpApi(user).subscribe(resp =>{
+      console.log(resp);
+
+    }, err => {
+      console.log(err);
+      
+    })
   }
 
 }
