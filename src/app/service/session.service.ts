@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class SessionService {
   }
 
   signUpApi(user : any) : Observable<any> {
-    return this.httpclient.post("http://localhost:9999/user",user)
+    return this.httpclient.post(environment.uri+"/user",user)
   }
 
 }

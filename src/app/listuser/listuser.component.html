@@ -1,1 +1,13 @@
-<p>listuser works!</p>
+<h2>Users</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <td>UserId</td>
+    <td>firstName</td>
+    <td>Action</td>
+  </tr>
+  <tr *ngFor="let u of users">
+    <td>{{ u.firstname }}</td>
+    <td>{{ u.email }}</td>
+  </tr>
+</table>

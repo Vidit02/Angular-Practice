@@ -33,12 +33,9 @@ export class SignupComponent implements OnInit {
     
 
     let user = {
-      "firstname" : this.firstname,
+      "firstname" : this.firstname + this.lastname,
       "email" : this.email,
-      "password" : this.password,
-      "lastname" : this.lastname,
-      "gender" : this.gender,
-      "active" : true
+      "password" : this.password
       // "lastname" : 
     }
 
